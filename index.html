@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Krishna Tandon | Data Analyst Portfolio</title>
+    <!-- Tailwind CSS CDN for utility-first styling -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN for interactive data visualizations -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts - Inter for clean typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,43 +23,53 @@
     CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
     -->
     <style>
+        /* Base font and background color for the entire body */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f3f4f6; /* Light gray background */
         }
+        /* Styling for navigation links */
         .nav-link {
-            transition: all 0.3s ease;
-            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease; /* Smooth transition for hover effects */
+            border-bottom: 2px solid transparent; /* Transparent border by default */
         }
+        /* Styling for the active (selected) navigation link */
         .nav-link.active {
-            border-bottom-color: #4338ca; /* Indigo */
-            color: #1e1b4b; /* Darker Indigo */
+            border-bottom-color: #4338ca; /* Indigo border for active tab */
+            color: #1e1b4b; /* Darker Indigo text for active tab */
         }
+        /* Hover effects for navigation links */
         .nav-link:hover {
-            border-bottom-color: #6d28d9; /* Purple */
-            color: #3730a3; /* Darker Indigo */
+            border-bottom-color: #6d28d9; /* Purple border on hover */
+            color: #3730a3; /* Darker Indigo text on hover */
         }
+        /* Hide sections by default */
         .section {
             display: none;
         }
+        /* Display the active section */
         .section.active {
             display: block;
         }
+        /* Container for Chart.js canvas to control its size and responsiveness */
         .chart-container {
             position: relative;
-            width: 100%;
-            max-width: 400px;
-            margin: auto;
-            height: 300px;
+            width: 100%; /* Take full width of its parent column */
+            max-width: 400px; /* Maximum width to prevent chart from being too wide */
+            margin: auto; /* Center the chart horizontally within its parent */
+            height: 300px; /* Base height for the chart container */
         }
+        /* Adjust chart container height for medium and larger screens */
         @media (min-width: 768px) {
             .chart-container {
                 height: 350px;
             }
         }
+        /* CSS for fade-in animation when switching sections */
         .fade-in {
             animation: fadeIn 0.5s ease-in-out;
         }
+        /* Keyframes for the fade-in animation */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -65,19 +78,21 @@
 </head>
 <body class="text-gray-800">
 
+    <!-- Main container for the entire portfolio, centered with responsive padding -->
     <div class="container mx-auto p-4 md:p-8 max-w-5xl">
 
-        <!-- Header Section -->
+        <!-- Header Section: Contains your name and title -->
         <header class="text-center mb-8 md:mb-12">
             <!-- The profile GIF was commented out in your provided code, so it is kept commented here. -->
+            <!-- You can uncomment and update the src if you wish to include a profile GIF/image -->
             <!-- <div class="inline-block p-2 rounded-full bg-white shadow-lg mb-4">
                 <img src="https://media.giphy.com/media/26Ff3pX7H7sbC8CZy/giphy.gif" alt="Profile GIF" class="w-32 h-32 rounded-full object-cover">
             </div> -->
             <h1 class="text-4xl md:text-5xl font-bold text-gray-900">Hi 👋, I'm Krishna Tandon</h1>
-            <p class="text-xl md:text-2xl text-gray-600 mt-2">A passionate Data Analyst from India 💡</p>
+            <p class="text-xl md:text-2xl text-gray-600 mt-2">A passionate Data Analyst💡</p>
         </header>
 
-        <!-- Navigation -->
+        <!-- Navigation Bar: Allows users to switch between different sections of the portfolio -->
         <nav class="flex justify-center border-b border-gray-300 mb-8">
             <button class="nav-link active font-semibold text-lg py-3 px-6" onclick="showSection('overview')">Overview</button>
             <button class="nav-link font-semibold text-lg py-3 px-6" onclick="showSection('skills')">Skills & Tools</button>
@@ -85,8 +100,9 @@
             <button class="nav-link font-semibold text-lg py-3 px-6" onclick="showSection('connect')">Connect</button>
         </nav>
 
+        <!-- Main Content Area: Contains all the different sections of the portfolio -->
         <main id="main-content">
-            <!-- Overview Section -->
+            <!-- Overview Section: Provides a quick summary of your current work, learning, and fun facts -->
             <section id="overview" class="section active fade-in">
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md">
                     <h2 class="text-2xl font-bold mb-6 text-center md:text-left">About Me</h2>
@@ -94,6 +110,7 @@
                         <li><span class="font-semibold">🔭 Currently working on:</span> HR Attrition Analytics Project 📊</li>
                         <li><span class="font-semibold">🌱 Learning:</span> Data Engineering 🔧</li>
                         <li><span class="font-semibold">💬 Ask me about:</span> Excel, SQL, Python, Power BI ⚡</li>
+                        <li><span class="font-semibold">📫 Reach me via email at:</span> <a href="mailto:ktandon121@gmail.com" class="text-indigo-600 hover:underline">ktandon121@gmail.com</a> 📧</li>
                         <li><span class="font-semibold">⚡ Fun Fact:</span> I am an Autodidact 🚀</li>
                     </ul>
 
@@ -101,6 +118,7 @@
 
                     <h2 class="text-2xl font-bold mb-6 text-center">GitHub Insights</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <!-- GitHub Stats Badges (Views, Streak, Trophies) -->
                         <div>
                             <div class="grid grid-cols-2 gap-4 text-center">
                                 <div class="bg-gray-100 p-4 rounded-lg">
@@ -117,6 +135,7 @@
                                 <img src="https://github-profile-trophy.vercel.app/?username=krishnatandon0303&theme=flat&no-frame=true&no-bg=true&margin-w=4" alt="Trophies" class="mx-auto"/>
                             </div>
                         </div>
+                        <!-- Chart.js Canvas for Top Languages -->
                         <div class="chart-container">
                             <canvas id="topLangsChart"></canvas>
                         </div>
@@ -124,43 +143,44 @@
                 </div>
             </section>
 
-            <!-- Skills Section -->
+            <!-- Skills Section: Displays your programming languages and tools using badges -->
             <section id="skills" class="section fade-in">
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md">
-                    <h2 class="text-2xl font-bold mb-6 text-center">Languages & Tools</h2>
+                    <h2 class="text-2xl font-bold mb-6 text-center">🛠️ Languages & Tools:</h2>
                     <div id="skills-grid" class="flex flex-wrap justify-center gap-4">
-                        <!-- Skills will be dynamically inserted here -->
+                        <!-- Skills will be dynamically inserted here by JavaScript -->
                     </div>
                 </div>
             </section>
 
-            <!-- Projects Section -->
+            <!-- Projects Section: Showcases your featured projects with descriptions and links -->
             <section id="projects" class="section fade-in">
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md">
                     <h2 class="text-2xl font-bold mb-6 text-center">🚀 Featured Projects</h2>
                     <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <!-- Projects will be dynamically inserted here -->
+                        <!-- Projects will be dynamically inserted here by JavaScript -->
                     </div>
                 </div>
             </section>
 
-            <!-- Connect Section -->
+            <!-- Connect Section: Provides links to your social media and other professional profiles -->
             <section id="connect" class="section fade-in">
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md">
                     <h2 class="text-2xl font-bold mb-6 text-center">Connect With Me</h2>
                     <p class="text-center text-lg text-gray-600 mb-6">
                         I'm always open to connecting with like-minded people. Feel free to reach out!
                         <br>
+                        <!-- Direct email link for easy contact -->
                         <a href="mailto:ktandon121@gmail.com" class="text-indigo-600 hover:underline font-semibold">ktandon121@gmail.com</a> 📧
                     </p>
                     <div id="connect-grid" class="flex flex-wrap justify-center gap-4">
-                        <!-- Social links will be dynamically inserted here -->
+                        <!-- Social links will be dynamically inserted here by JavaScript -->
                     </div>
                 </div>
             </section>
         </main>
 
-        <!-- Footer -->
+        <!-- Footer Section: Contains an inspirational quote -->
         <footer class="text-center mt-12">
             <p class="text-gray-600 italic">"Learning is the only thing the mind never exhausts, never fears, and never regrets."</p>
             <p class="text-gray-500 font-semibold mt-1">— Leonardo da Vinci</p>
@@ -168,9 +188,13 @@
 
     </div>
 
+    <!-- JavaScript for data storage, dynamic rendering, navigation, and charts -->
     <script>
         // --- DATA STORE ---
+        // This object holds all the dynamic content for your portfolio.
+        // You can easily update or add new items here.
         const appData = {
+            // Array of skill objects. Each object represents a skill/tool.
             skills: [
                 { name: 'Python', link: 'https://www.python.org', badge: 'https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white' },
                 { name: 'MySQL', link: 'https://www.mysql.com/', badge: 'https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white' },
@@ -182,11 +206,50 @@
                 { name: 'Docker', link: 'https://www.docker.com/', badge: 'https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white' },
                 { name: 'C++', link: 'https://www.w3schools.com/cpp/', badge: 'https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white' }
             ],
+            // Array of project objects. Each object represents a featured project.
             projects: [
-                { name: 'HR Attrition Analytics', link: 'https://github.com/krishnatandon0303/HR-Attrition-Analytics', description: 'An in-depth analysis of employee attrition factors, providing insights for retention strategies.', icon: '📊' },
-                { name: 'Power BI Dashboard', link: 'https://github.com/krishnatandon0303/Power-BI-Dashboard', description: 'An interactive dashboard visualizing key business metrics for data-driven decision making.', icon: '📈' },
-                { name: 'Personal Portfolio', link: 'https://krishnat-portfolio.netlify.app/', description: 'My main portfolio website showcasing a broader range of my work and experience.', icon: '🌐' }
+                // --- HOW TO ADD OR UPDATE PROJECTS ---
+                // To add a new project:
+                // 1. Copy one of the existing project objects below.
+                // 2. Paste it as a new line in this array.
+                // 3. Make sure to add a comma (,) after the closing curly brace } of the previous project,
+                //    unless it's the very last project in the list.
+                // 4. Update the 'name', 'link', 'description', and 'icon' for your new project.
+                //
+                // To update an existing project:
+                // 1. Find the project object you want to change.
+                // 2. Modify any of its 'name', 'link', 'description', or 'icon' values.
+
+                // Example Project 1: HR Attrition Analytics
+                {
+                    name: 'HR Attrition Analytics', // Display name of the project
+                    link: 'https://github.com/krishnatandon0303/HR-Attrition-Analytics', // URL to the project's GitHub repo or live demo
+                    description: 'An in-depth analysis of employee attrition factors, providing insights for retention strategies.', // Short description of the project
+                    icon: '📊' // A relevant Unicode emoji for the project icon
+                },
+                // Example Project 2: Power BI Dashboard
+                {
+                    name: 'Power BI Dashboard',
+                    link: 'https://github.com/krishnatandon0303/Power-BI-Dashboard',
+                    description: 'An interactive dashboard visualizing key business metrics for data-driven decision making.',
+                    icon: '📈'
+                },
+                // Example Project 3: Personal Portfolio (this current site)
+                {
+                    name: 'Personal Portfolio',
+                    link: 'https://krishnat-portfolio.netlify.app/', // Link to your Netlify hosted portfolio
+                    description: 'My main portfolio website showcasing a broader range of my work and experience.',
+                    icon: '🌐'
+                }
+                // Add more projects here following the same format.
+                // {
+                //     name: 'Your New Project Name',
+                //     link: 'https://github.com/yourusername/your-new-project-repo',
+                //     description: 'A brief and compelling description of your new project.',
+                //     icon: '✨' // Choose an emoji that fits your project
+                // }
             ],
+            // Array of social/connect link objects.
             connect: [
                 { name: 'LinkedIn', link: 'https://linkedin.com/in/krishna-tandon-ab1421312', badge: 'https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white' },
                 { name: 'Kaggle', link: 'https://kaggle.com/krishnatcode', badge: 'https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white' },
@@ -195,22 +258,26 @@
                 { name: 'LeetCode', link: 'https://www.leetcode.com/ktandon121', badge: 'https://img.shields.io/badge/-LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black' },
                 { name: 'Instagram', link: 'https://instagram.com/krishnatandon__', badge: 'https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white' }
             ],
+            // Data for the "Top Languages" doughnut chart.
             topLangs: {
-                // Estimated from the GitHub stats image
+                // These values are estimated from the GitHub stats image you provided.
+                // You can update these if you get more accurate data from GitHub API or other tools.
                 labels: ['Python', 'Jupyter Notebook', 'HTML', 'CSS', 'JavaScript'],
-                data: [45, 30, 15, 5, 5],
-                colors: ['#3776AB', '#F37626', '#E34F26', '#1572B6', '#F7DF1E']
+                data: [45, 30, 15, 5, 5], // Percentages for each language
+                colors: ['#3776AB', '#F37626', '#E34F26', '#1572B6', '#F7DF1E'] // Corresponding colors for the chart segments
             }
         };
 
-        // --- DYNAMIC RENDERING ---
+        // --- DYNAMIC RENDERING FUNCTIONS ---
+        // Function to render skill badges into the 'skills-grid' div.
         function renderSkills() {
             const grid = document.getElementById('skills-grid');
+            grid.innerHTML = ''; // Clear existing content to prevent duplicates on re-render
             appData.skills.forEach(skill => {
                 const link = document.createElement('a');
                 link.href = skill.link;
-                link.target = '_blank';
-                link.title = skill.name;
+                link.target = '_blank'; // Open link in a new tab
+                link.title = skill.name; // Tooltip on hover
                 const img = document.createElement('img');
                 img.src = skill.badge;
                 img.alt = skill.name;
@@ -219,21 +286,25 @@
             });
         }
 
+        // Function to render project cards into the 'projects-grid' div.
         function renderProjects() {
             const grid = document.getElementById('projects-grid');
+            grid.innerHTML = ''; // Clear existing content
             appData.projects.forEach(project => {
                 const card = document.createElement('a');
                 card.href = project.link;
-                card.target = '_blank';
+                card.target = '_blank'; // Open link in a new tab
+                // Tailwind classes for styling project cards, including hover effects
                 card.className = 'block bg-gray-50 hover:bg-white p-6 rounded-lg shadow-sm hover:shadow-xl transition-shadow duration-300';
                 
+                // HTML structure for each project card
                 const content = `
                     <div class="flex items-start">
-                        <div class="text-3xl mr-4">${project.icon}</div>
+                        <div class="text-3xl mr-4">${project.icon}</div> <!-- Project icon -->
                         <div>
-                            <h3 class="text-xl font-bold text-gray-800">${project.name}</h3>
-                            <p class="text-gray-600 mt-2">${project.description}</p>
-                            <span class="inline-block text-indigo-600 font-semibold mt-4 group-hover:underline">View Project →</span>
+                            <h3 class="text-xl font-bold text-gray-800">${project.name}</h3> <!-- Project name -->
+                            <p class="text-gray-600 mt-2">${project.description}</p> <!-- Project description -->
+                            <span class="inline-block text-indigo-600 font-semibold mt-4 group-hover:underline">View Project →</span> <!-- Call to action -->
                         </div>
                     </div>
                 `;
@@ -242,13 +313,15 @@
             });
         }
 
+        // Function to render social/connect link badges into the 'connect-grid' div.
         function renderConnectLinks() {
             const grid = document.getElementById('connect-grid');
+            grid.innerHTML = ''; // Clear existing content
             appData.connect.forEach(item => {
                 const link = document.createElement('a');
                 link.href = item.link;
-                link.target = '_blank';
-                link.title = item.name;
+                link.target = '_blank'; // Open link in a new tab
+                link.title = item.name; // Tooltip on hover
                 const img = document.createElement('img');
                 img.src = item.badge;
                 img.alt = item.name;
@@ -258,52 +331,60 @@
         }
 
         // --- NAVIGATION LOGIC ---
+        // Function to show the selected section and highlight the active navigation link.
         function showSection(sectionId) {
+            // Hide all sections
             const sections = document.querySelectorAll('.section');
             sections.forEach(section => {
                 section.classList.remove('active');
             });
 
+            // Deactivate all navigation links
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => {
                 link.classList.remove('active');
             });
 
+            // Show the selected section and add fade-in animation
             document.getElementById(sectionId).classList.add('active');
+            // Activate the corresponding navigation link
             document.querySelector(`.nav-link[onclick="showSection('${sectionId}')"]`).classList.add('active');
         }
 
         // --- CHART.JS IMPLEMENTATION ---
+        // Function to render the doughnut chart for top languages.
         function renderTopLangsChart() {
+            // Get the 2D rendering context of the canvas element
             const ctx = document.getElementById('topLangsChart').getContext('2d');
             new Chart(ctx, {
-                type: 'doughnut',
+                type: 'doughnut', // Type of chart
                 data: {
-                    labels: appData.topLangs.labels,
+                    labels: appData.topLangs.labels, // Labels for each segment (e.g., 'Python')
                     datasets: [{
                         label: 'Top Languages',
-                        data: appData.topLangs.data,
-                        backgroundColor: appData.topLangs.colors,
-                        borderColor: '#ffffff',
-                        borderWidth: 4
+                        data: appData.topLangs.data, // Data values (e.g., percentages)
+                        backgroundColor: appData.topLangs.colors, // Colors for each segment
+                        borderColor: '#ffffff', // Border color between segments
+                        borderWidth: 4 // Width of the border
                     }]
                 },
                 options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
+                    responsive: true, // Chart will resize with its container
+                    maintainAspectRatio: false, // Important: Allows chart to fill its container's height
                     plugins: {
                         legend: {
-                            position: 'bottom',
+                            position: 'bottom', // Position the legend at the bottom
                             labels: {
                                 font: {
-                                    size: 14,
-                                    family: 'Inter'
+                                    size: 14, // Font size for legend labels
+                                    family: 'Inter' // Font family for legend labels
                                 },
-                                padding: 20
+                                padding: 20 // Padding between legend items
                             }
                         },
                         tooltip: {
                             callbacks: {
+                                // Custom callback to format tooltip labels (e.g., "Python: 45%")
                                 label: function(context) {
                                     let label = context.label || '';
                                     if (label) {
@@ -317,30 +398,34 @@
                             }
                         },
                         title: {
-                            display: true,
-                            text: 'Top Languages',
+                            display: true, // Display the chart title
+                            text: 'Top Languages', // Chart title text
                             font: {
-                                size: 18,
-                                weight: 'bold'
+                                size: 18, // Font size for the title
+                                weight: 'bold' // Font weight for the title
                             },
                             padding: {
                                 top: 10,
-                                bottom: 20
+                                bottom: 20 // Padding around the title
                             }
                         }
                     },
-                    cutout: '60%'
+                    cutout: '60%' // Size of the inner hole for doughnut chart
                 }
             });
         }
 
         // --- INITIALIZATION ---
+        // This function runs when the entire HTML document has been loaded and parsed.
         document.addEventListener('DOMContentLoaded', () => {
+            // Call rendering functions to populate content
             renderSkills();
             renderProjects();
             renderConnectLinks();
+            // Render the chart
             renderTopLangsChart();
-            showSection('overview'); // Set default section
+            // Set the 'Overview' section as active by default when the page loads
+            showSection('overview'); 
         });
     </script>
 </body>
