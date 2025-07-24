@@ -13,37 +13,38 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- 
-    Chosen Palette: Vintage Vibe (Body Background: #FBF8F3 (Very Light Cream), Main Content: #FFFFFF (Clean White), Primary Text: #333333 (Dark Charcoal), Secondary Text: #666666 (Medium Gray), Accent (Nav Active/Hover): #8B4513 (Saddle Brown), Link Color: #A0522D (Sienna), Stat Card Background: #EAE0D5 (Light Antique White))
+    Chosen Palette: Modern & Calm (Body Background: #F9FAFB (Very Light Gray), Main Content: #FFFFFF (Clean White), Primary Text: #1F2937 (Dark Blue-Gray), Secondary Text: #6B7280 (Medium Gray), Accent (Nav Active/Hover, Links): #3B82F6 (Blue), Skill Pill Background: #DBEAFE (Light Blue), Project Card Hover: #F3F4F6 (Lighter Gray))
     Application Structure Plan: A tab-based single-page application is chosen for optimal user experience. This structure organizes the content into logical, digestible sections (Overview, Skills, Projects, Connect), allowing users to navigate directly to the information they are most interested in without excessive scrolling. The default 'Overview' tab provides a comprehensive summary with key stats and current activities, immediately showcasing value. This non-linear exploration path is more user-friendly and professional than a long, linear README file.
     Visualization & Content Choices: 
     - Report Info: GitHub Stats (Top Languages). Goal: Compare skills. Viz/Presentation: Interactive Doughnut Chart (Chart.js). Interaction: Hover to see percentages. Justification: A dynamic chart is more engaging and professional than a static image, providing a clearer, interactive representation of language proficiency.
-    - Report Info: GitHub Stats (Views, Trophies, Streak). Goal: Inform/Impress. Viz/Presentation: Dynamic Stat Cards. Interaction: Static display. Justification: Presents key achievements in a scannable, visually appealing format.
     - Report Info: Projects. Goal: Showcase work. Viz/Presentation: Interactive Cards. Interaction: Hover effects, clickable links. Justification: Organizes projects cleanly and encourages user interaction to explore further.
-    - Report Info: Skills & Socials. Goal: Organize/Connect. Viz/Presentation: Badge Grids. Interaction: Hover tooltips, clickable links. Justification: A structured grid is cleaner and more scannable than a simple list.
+    - Report Info: Skills & Socials. Goal: Organize/Connect. Viz/Presentation: Text-based Pills/Badges for skills, Image-based badges for social. Interaction: Static display (skills), Hover tooltips, clickable links (social). Justification: Provides a clean, minimalistic display of skills while retaining recognizable branding for social links.
     CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
     -->
     <style>
         /* Base font and background color for the entire body */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #FBF8F3; /* Very light, warm cream background for vintage vibe */
-            color: #333333; /* Dark charcoal text for primary content */
+            background-color: #F9FAFB; /* Very light gray background for a modern feel */
+            color: #1F2937; /* Dark blue-gray text for primary content */
+            cursor: default; /* Default cursor for the body */
         }
         /* Styling for navigation links */
         .nav-link {
             transition: all 0.3s ease; /* Smooth transition for hover effects */
             border-bottom: 2px solid transparent; /* Transparent border by default */
-            color: #666666; /* Medium gray for inactive nav links */
+            color: #6B7280; /* Medium gray for inactive nav links */
+            cursor: pointer; /* Pointer cursor for clickable nav links */
         }
         /* Styling for the active (selected) navigation link */
         .nav-link.active {
-            border-bottom-color: #8B4513; /* Saddle Brown border for active tab */
-            color: #333333; /* Dark charcoal text for active tab */
+            border-bottom-color: #3B82F6; /* Blue border for active tab */
+            color: #1F2937; /* Dark blue-gray text for active tab */
         }
         /* Hover effects for navigation links */
         .nav-link:hover {
-            border-bottom-color: #A0522D; /* Sienna border on hover */
-            color: #4A4A4A; /* Slightly darker gray text on hover */
+            border-bottom-color: #2563EB; /* Darker blue border on hover */
+            color: #111827; /* Even darker blue-gray text on hover */
         }
         /* Hide sections by default */
         .section {
@@ -76,6 +77,27 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* Custom styling for skill pills */
+        .skill-pill {
+            transition: all 0.3s ease; /* Smooth transition for hover effects */
+            cursor: pointer; /* Pointer cursor for clickable skill pills */
+        }
+        .skill-pill:hover {
+            transform: translateY(-2px); /* Lift effect on hover */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
+        }
+
+        /* Custom styling for project cards */
+        .project-card-link {
+            transition: all 0.3s ease; /* Smooth transition for hover effects */
+            cursor: pointer; /* Pointer cursor for clickable project cards */
+        }
+        .project-card-link:hover {
+            transform: translateY(-4px); /* Lift effect on hover */
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* More pronounced shadow on hover */
+            background-color: #F3F4F6; /* Lighter gray background on hover */
+        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -86,15 +108,17 @@
         <!-- Header Section: Contains your name, title, and profile image -->
         <header class="text-center mb-8 md:mb-12">
             <!-- Profile Image: Your provided image, styled for a rounded, clean look -->
+            <!-- IMPORTANT: Replace 'http://googleusercontent.com/file_content/8' with a permanent public URL of your image -->
             <div class="inline-block p-2 rounded-full bg-white shadow-lg mb-4">
-                <img src="https://drive.google.com/file/d/11B3DBEe1ulVPe0B-lc8e07b1YWsWjb6y/view?usp=sharing" alt="Krishna Tandon Profile" class="w-32 h-32 rounded-full object-cover">
+                <img src="http://googleusercontent.com/file_content/8" onerror="this.onerror=null;this.src='https://placehold.co/128x128/E0E7FF/3B82F6?text=KT';" alt="Krishna Tandon Profile" class="w-32 h-32 rounded-full object-cover">
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold text-[#333333]">Hi 👋, I'm Krishna Tandon</h1>
-            <p class="text-xl md:text-2xl text-[#666666] mt-2">A passionate Data Analyst from India 💡</p>
+            <h1 class="text-4xl md:text-5xl font-bold text-[#1F2937]">Hi 👋, I'm Krishna Tandon</h1>
+            <!-- Updated tagline for Data Analyst -->
+            <p class="text-xl md:text-2xl text-[#6B7280] mt-2">Transforming data into actionable insights and compelling narratives 💡</p>
         </header>
 
         <!-- Navigation Bar: Allows users to switch between different sections of the portfolio -->
-        <nav class="flex justify-center border-b border-[#EAE0D5] mb-8">
+        <nav class="flex justify-center border-b border-[#E5E7EB] mb-8">
             <button class="nav-link active font-semibold text-lg py-3 px-6" onclick="showSection('overview')">Overview</button>
             <button class="nav-link font-semibold text-lg py-3 px-6" onclick="showSection('skills')">Skills & Tools</button>
             <button class="nav-link font-semibold text-lg py-3 px-6" onclick="showSection('projects')">Projects</button>
@@ -106,52 +130,39 @@
             <!-- Overview Section: Provides a quick summary of your current work, learning, and fun facts -->
             <section id="overview" class="section active fade-in">
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md">
-                    <h2 class="text-2xl font-bold mb-6 text-center md:text-left text-[#333333]">About Me</h2>
-                    <ul class="space-y-4 text-lg text-[#666666]">
+                    <h2 class="text-2xl font-bold mb-6 text-center md:text-left text-[#1F2937]">About Me</h2>
+                    <ul class="space-y-4 text-lg text-[#6B7280]">
                         <li><span class="font-semibold">🔭 Currently working on:</span> HR Attrition Analytics Project 📊</li>
                         <li><span class="font-semibold">🌱 Learning:</span> Data Engineering 🔧</li>
                         <li><span class="font-semibold">💬 Ask me about:</span> Excel, SQL, Python, Power BI ⚡</li>
-                        <li><span class="font-semibold">📫 Reach me via email at:</span> <a href="mailto:ktandon121@gmail.com" class="text-[#A0522D] hover:underline">ktandon121@gmail.com</a> 📧</li>
+                        <li><span class="font-semibold">📫 Reach me via email at:</span> <a href="mailto:ktandon121@gmail.com" class="text-[#3B82F6] hover:underline">ktandon121@gmail.com</a> 📧</li>
                         <li><span class="font-semibold">⚡ Fun Fact:</span> I am an Autodidact 🚀</li>
                     </ul>
 
-                    <hr class="my-8 border-[#EAE0D5]">
+                    <hr class="my-8 border-[#E5E7EB]">
 
-                    <h2 class="text-2xl font-bold mb-6 text-center text-[#333333]">GitHub Insights</h2>
+                    <h2 class="text-2xl font-bold mb-6 text-center text-[#1F2937]">GitHub Insights</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                        <!-- GitHub Stats Badges (Views, Streak, Trophies) -->
-                        <div>
-                            <div class="grid grid-cols-2 gap-4 text-center">
-                                <div class="bg-[#EAE0D5] p-4 rounded-lg">
-                                    <p class="text-sm font-medium text-[#666666]">Profile Views</p>
-                                    <!-- Changed badge color to match vintage theme -->
-                                    <img src="https://komarev.com/ghpvc/?username=krishnatandon0303&label=&color=8B4513&style=flat-square" alt="Profile Views" class="mx-auto mt-2"/>
-                                </div>
-                                <div class="bg-[#EAE0D5] p-4 rounded-lg">
-                                    <p class="text-sm font-medium text-[#666666]">GitHub Streak</p>
-                                    <!-- Changed theme for streak badge -->
-                                    <img src="https://github-readme-streak-stats.herokuapp.com/?user=krishnatandon0303&theme=radical&hide_border=true&card_width=150&date_format=M%20j%5B%2C%20Y%5D" alt="GitHub Streak" class="mx-auto"/>
-                                </div>
-                            </div>
-                            <div class="mt-4 bg-[#EAE0D5] p-4 rounded-lg text-center">
-                                <p class="text-sm font-medium text-[#666666] mb-2">Trophies</p>
-                                <img src="https://github-profile-trophy.vercel.app/?username=krishnatandon0303&theme=flat&no-frame=true&no-bg=true&margin-w=4" alt="Trophies" class="mx-auto"/>
-                            </div>
-                        </div>
-                        <!-- Chart.js Canvas for Top Languages -->
+                        <!-- GitHub Stats Badges (Profile Views, Streak, Trophies) have been removed as requested -->
+                        <!-- The Top Languages chart remains as a key insight -->
                         <div class="chart-container">
                             <canvas id="topLangsChart"></canvas>
+                        </div>
+                        <!-- Placeholder for additional insights after removing badges, providing context -->
+                        <div class="text-center text-[#6B7280] text-lg">
+                            <p>My GitHub activity reflects a consistent passion for coding and data exploration.</p>
+                            <p class="mt-2">Explore my projects to see my skills in action!</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Skills Section: Displays your programming languages and tools using badges -->
+            <!-- Skills Section: Displays your programming languages and tools with a minimalistic design -->
             <section id="skills" class="section fade-in">
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md">
-                    <h2 class="text-2xl font-bold mb-6 text-center text-[#333333]">🛠️ Languages & Tools:</h2>
-                    <div id="skills-grid" class="flex flex-wrap justify-center gap-4">
-                        <!-- Skills will be dynamically inserted here by JavaScript -->
+                    <h2 class="text-2xl font-bold mb-6 text-center text-[#1F2937]">🛠️ Languages & Tools:</h2>
+                    <div id="skills-grid" class="flex flex-wrap justify-center gap-3">
+                        <!-- Skills will be dynamically inserted here by JavaScript with minimalistic styling -->
                     </div>
                 </div>
             </section>
@@ -159,7 +170,7 @@
             <!-- Projects Section: Showcases your featured projects with descriptions and links -->
             <section id="projects" class="section fade-in">
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md">
-                    <h2 class="text-2xl font-bold mb-6 text-center text-[#333333]">🚀 Featured Projects</h2>
+                    <h2 class="text-2xl font-bold mb-6 text-center text-[#1F2937]">🚀 Featured Projects</h2>
                     <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <!-- Projects will be dynamically inserted here by JavaScript -->
                     </div>
@@ -169,12 +180,12 @@
             <!-- Connect Section: Provides links to your social media and other professional profiles -->
             <section id="connect" class="section fade-in">
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md">
-                    <h2 class="text-2xl font-bold mb-6 text-center text-[#333333]">Connect With Me</h2>
-                    <p class="text-center text-lg text-[#666666] mb-6">
+                    <h2 class="text-2xl font-bold mb-6 text-center text-[#1F2937]">Connect With Me</h2>
+                    <p class="text-center text-lg text-[#6B7280] mb-6">
                         I'm always open to connecting with like-minded people. Feel free to reach out!
                         <br>
                         <!-- Direct email link for easy contact -->
-                        <a href="mailto:ktandon121@gmail.com" class="text-[#A0522D] hover:underline font-semibold">ktandon121@gmail.com</a> 📧
+                        <a href="mailto:ktandon121@gmail.com" class="text-[#3B82F6] hover:underline font-semibold">ktandon121@gmail.com</a> 📧
                     </p>
                     <div id="connect-grid" class="flex flex-wrap justify-center gap-4">
                         <!-- Social links will be dynamically inserted here by JavaScript -->
@@ -185,8 +196,8 @@
 
         <!-- Footer Section: Contains an inspirational quote -->
         <footer class="text-center mt-12">
-            <p class="text-[#666666] italic">"Learning is the only thing the mind never exhausts, never fears, and never regrets."</p>
-            <p class="text-[#666666] font-semibold mt-1">— Leonardo da Vinci</p>
+            <p class="text-[#6B7280] italic">"Learning is the only thing the mind never exhausts, never fears, and never regrets."</p>
+            <p class="text-[#6B7280] font-semibold mt-1">— Leonardo da Vinci</p>
         </footer>
 
     </div>
@@ -198,19 +209,20 @@
         // You can easily update or add new items here.
         const appData = {
             // Array of skill objects. Each object represents a skill/tool.
+            // Now only includes 'name' and 'link' for minimalistic display.
             skills: [
-                // Updated badge colors for a more vintage/muted feel where possible
-                { name: 'Python', link: 'https://www.python.org', badge: 'https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white' }, /* Kept original for strong logo */
-                { name: 'MySQL', link: 'https://www.mysql.com/', badge: 'https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white' }, /* Kept original for strong logo */
-                { name: 'PostgreSQL', link: 'https://www.postgresql.org', badge: 'https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white' }, /* Kept original for strong logo */
-                { name: 'Pandas', link: 'https://pandas.pydata.org/', badge: 'https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white' }, /* Kept original for strong logo */
-                { name: 'SQL Server', link: 'https://www.microsoft.com/en-us/sql-server', badge: 'https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white' }, /* Kept original for strong logo */
-                { name: 'Power BI', link: 'https://www.powerbi.com', badge: 'https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=power-bi&logoColor=black' }, /* Kept original for strong logo */
-                { name: 'AWS', link: 'https://aws.amazon.com', badge: 'https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white' }, /* Kept original for strong logo */
-                { name: 'Docker', link: 'https://www.docker.com/', badge: 'https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white' }, /* Kept original for strong logo */
-                { name: 'C++', link: 'https://www.w3schools.com/cpp/', badge: 'https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white' } /* Kept original for strong logo */
+                { name: 'Python', link: 'https://www.python.org' },
+                { name: 'MySQL', link: 'https://www.mysql.com/' },
+                { name: 'PostgreSQL', link: 'https://www.postgresql.org' },
+                { name: 'Pandas', link: 'https://pandas.pydata.org/' },
+                { name: 'SQL Server', link: 'https://www.microsoft.com/en-us/sql-server' },
+                { name: 'Power BI', link: 'https://www.powerbi.com' },
+                { name: 'AWS', link: 'https://aws.amazon.com' },
+                { name: 'Docker', link: 'https://www.docker.com/' },
+                { name: 'C++', link: 'https://www.w3schools.com/cpp/' }
             ],
             // Array of project objects. Each object represents a featured project.
+            // Added 'technologies' array to each project for display.
             projects: [
                 // --- HOW TO ADD OR UPDATE PROJECTS ---
                 // To add a new project:
@@ -218,64 +230,68 @@
                 // 2. Paste it as a new line in this array.
                 // 3. Make sure to add a comma (,) after the closing curly brace } of the previous project,
                 //    unless it's the very last project in the list.
-                // 4. Update the 'name', 'link', 'description', and 'icon' for your new project.
+                // 4. Update the 'name', 'link', 'description', 'icon', and 'technologies' for your new project.
                 //
                 // To update an existing project:
                 // 1. Find the project object you want to change.
-                // 2. Modify any of its 'name', 'link', 'description', or 'icon' values.
+                // 2. Modify any of its 'name', 'link', 'description', 'icon', or 'technologies' values.
 
                 // Example Project 1: HR Attrition Analytics
                 {
                     name: 'HR Attrition Analytics', // Display name of the project
                     link: 'https://github.com/krishnatandon0303/HR-Attrition-Analytics', // URL to the project's GitHub repo or live demo
                     description: 'An in-depth analysis of employee attrition factors, providing insights for retention strategies.', // Short description of the project
-                    icon: '📊' // A relevant Unicode emoji for the project icon
+                    icon: '📊', // A relevant Unicode emoji for the project icon
+                    technologies: ['Python', 'Pandas', 'NumPy', 'Scikit-learn', 'Power BI'] // Tools and technologies used
                 },
                 // Example Project 2: Power BI Dashboard
                 {
                     name: 'Power BI Dashboard',
                     link: 'https://github.com/krishnatandon0303/Power-BI-Dashboard',
                     description: 'An interactive dashboard visualizing key business metrics for data-driven decision making.',
-                    icon: '📈'
+                    icon: '�',
+                    technologies: ['Power BI', 'SQL', 'Excel']
                 },
                 // Example Project 3: Personal Portfolio (this current site)
                 {
                     name: 'Personal Portfolio',
                     link: 'https://krishnat-portfolio.netlify.app/', // Link to your Netlify hosted portfolio
                     description: 'My main portfolio website showcasing a broader range of my work and experience.',
-                    icon: '🌐'
+                    icon: '🌐',
+                    technologies: ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS', 'Chart.js']
                 }
                 // Add more projects here following the same format.
                 // {
                 //     name: 'Your New Project Name',
                 //     link: 'https://github.com/yourusername/your-new-project-repo',
                 //     description: 'A brief and compelling description of your new project.',
-                //     icon: '✨' // Choose an emoji that fits your project
+                //     icon: '✨', // Choose an emoji that fits your project
+                //     technologies: ['Tech1', 'Tech2', 'Tech3'] // List of technologies
                 // }
             ],
             // Array of social/connect link objects.
             connect: [
-                // Updated badge colors for a more vintage/muted feel where possible
-                { name: 'LinkedIn', link: 'https://linkedin.com/in/krishna-tandon-ab1421312', badge: 'https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white' }, /* Kept original for strong logo */
-                { name: 'Kaggle', link: 'https://kaggle.com/krishnatcode', badge: 'https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white' }, /* Kept original for strong logo */
-                { name: 'Medium', link: 'https://medium.com/@ktandon121', badge: 'https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white' }, /* Kept original for strong logo */
-                { name: 'HackerRank', link: 'https://www.hackerrank.com/ktandon121', badge: 'https://img.shields.io/badge/-HackerRank-2EC866?style=for-the-badge&logo=hackerrank&logoColor=white' }, /* Kept original for strong logo */
-                { name: 'LeetCode', link: 'https://www.leetcode.com/ktandon121', badge: 'https://img.shields.io/badge/-LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black' }, /* Kept original for strong logo */
-                { name: 'Instagram', link: 'https://instagram.com/krishnatandon__', badge: 'https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white' } /* Kept original for strong logo */
+                // Badge URLs are kept for social links as they are distinct and visually useful here
+                { name: 'LinkedIn', link: 'https://linkedin.com/in/krishna-tandon-ab1421312', badge: 'https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white' },
+                { name: 'Kaggle', link: 'https://kaggle.com/krishnatcode', badge: 'https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white' },
+                { name: 'Medium', link: 'https://medium.com/@ktandon121', badge: 'https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white' },
+                { name: 'HackerRank', link: 'https://www.hackerrank.com/ktandon121', badge: 'https://img.shields.io/badge/-HackerRank-2EC866?style=for-the-badge&logo=hackerrank&logoColor=white' },
+                { name: 'LeetCode', link: 'https://www.leetcode.com/ktandon121', badge: 'https://img.shields.io/badge/-LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black' },
+                { name: 'Instagram', link: 'https://instagram.com/krishnatandon__', badge: 'https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white' }
             ],
             // Data for the "Top Languages" doughnut chart.
             topLangs: {
                 // These values are estimated from the GitHub stats image you provided.
                 // You can update these if you get more accurate data from GitHub API or other tools.
-                labels: ['Python', 'Jupyter Notebook', 'HTML', 'CSS', 'JavaScript'],
-                // Updated data colors to match the vintage theme
+                labels: ['Python', 'Jupyter Notebook', 'SQL', 'Power BI', 'Other'], /* Updated labels for clarity */
                 data: [45, 30, 15, 5, 5], // Percentages for each language
-                colors: ['#7F8C8D', '#D35400', '#E74C3C', '#3498DB', '#F1C40F'] // Muted, earthy tones for chart segments
+                // Updated chart colors to match the new modern theme
+                colors: ['#3B82F6', '#60A5FA', '#93C5FD', '#BFDBFE', '#D1D5DB'] // Shades of blue and gray
             }
         };
 
         // --- DYNAMIC RENDERING FUNCTIONS ---
-        // Function to render skill badges into the 'skills-grid' div.
+        // Function to render skill names as minimalistic pills into the 'skills-grid' div.
         function renderSkills() {
             const grid = document.getElementById('skills-grid');
             grid.innerHTML = ''; // Clear existing content to prevent duplicates on re-render
@@ -284,10 +300,9 @@
                 link.href = skill.link;
                 link.target = '_blank'; // Open link in a new tab
                 link.title = skill.name; // Tooltip on hover
-                const img = document.createElement('img');
-                img.src = skill.badge;
-                img.alt = skill.name;
-                link.appendChild(img);
+                // Tailwind classes for minimalistic pill design with hover effects
+                link.className = 'skill-pill bg-[#DBEAFE] text-[#1E3A8A] text-sm font-medium px-4 py-2 rounded-full shadow-sm hover:bg-[#BFDBFE] hover:shadow-md transition-all duration-300 transform hover:-translate-y-1';
+                link.textContent = skill.name;
                 grid.appendChild(link);
             });
         }
@@ -301,16 +316,24 @@
                 card.href = project.link;
                 card.target = '_blank'; // Open link in a new tab
                 // Tailwind classes for styling project cards, including hover effects
-                card.className = 'block bg-white hover:bg-[#FBF8F3] p-6 rounded-lg shadow-sm hover:shadow-xl transition-shadow duration-300'; /* Adjusted hover background */
+                card.className = 'project-card-link block bg-white p-6 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1';
                 
+                // Generate technology tags for the project
+                const techTags = project.technologies.map(tech => 
+                    `<span class="inline-block bg-[#E0E7FF] text-[#4338CA] text-xs font-medium px-2 py-0.5 rounded-full mr-1 mb-1">${tech}</span>`
+                ).join('');
+
                 // HTML structure for each project card
                 const content = `
                     <div class="flex items-start">
                         <div class="text-3xl mr-4">${project.icon}</div> <!-- Project icon -->
                         <div>
-                            <h3 class="text-xl font-bold text-[#333333]">${project.name}</h3> <!-- Project name -->
-                            <p class="text-[#666666] mt-2">${project.description}</p> <!-- Project description -->
-                            <span class="inline-block text-[#A0522D] font-semibold mt-4 group-hover:underline">View Project →</span> <!-- Call to action -->
+                            <h3 class="text-xl font-bold text-[#1F2937]">${project.name}</h3> <!-- Project name -->
+                            <p class="text-[#6B7280] mt-2">${project.description}</p> <!-- Project description -->
+                            <div class="flex flex-wrap mt-3">
+                                ${techTags} <!-- Display technology tags -->
+                            </div>
+                            <span class="inline-block text-[#3B82F6] font-semibold mt-4 group-hover:underline">View Project →</span> <!-- Call to action -->
                         </div>
                     </div>
                 `;
@@ -436,3 +459,4 @@
     </script>
 </body>
 </html>
+�
