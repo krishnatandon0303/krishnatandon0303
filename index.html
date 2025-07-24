@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- 
-    Chosen Palette: Warm Neutrals (Background: #F5F5F5, Main Content: #FFFFFF, Primary Text: #1F2937, Accent: #4F46E5, Secondary Accent: #10B981)
+    Chosen Palette: Vintage Vibe (Body Background: #FBF8F3 (Very Light Cream), Main Content: #FFFFFF (Clean White), Primary Text: #333333 (Dark Charcoal), Secondary Text: #666666 (Medium Gray), Accent (Nav Active/Hover): #8B4513 (Saddle Brown), Link Color: #A0522D (Sienna), Stat Card Background: #EAE0D5 (Light Antique White))
     Application Structure Plan: A tab-based single-page application is chosen for optimal user experience. This structure organizes the content into logical, digestible sections (Overview, Skills, Projects, Connect), allowing users to navigate directly to the information they are most interested in without excessive scrolling. The default 'Overview' tab provides a comprehensive summary with key stats and current activities, immediately showcasing value. This non-linear exploration path is more user-friendly and professional than a long, linear README file.
     Visualization & Content Choices: 
     - Report Info: GitHub Stats (Top Languages). Goal: Compare skills. Viz/Presentation: Interactive Doughnut Chart (Chart.js). Interaction: Hover to see percentages. Justification: A dynamic chart is more engaging and professional than a static image, providing a clearer, interactive representation of language proficiency.
@@ -26,22 +26,24 @@
         /* Base font and background color for the entire body */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6; /* Light gray background */
+            background-color: #FBF8F3; /* Very light, warm cream background for vintage vibe */
+            color: #333333; /* Dark charcoal text for primary content */
         }
         /* Styling for navigation links */
         .nav-link {
             transition: all 0.3s ease; /* Smooth transition for hover effects */
             border-bottom: 2px solid transparent; /* Transparent border by default */
+            color: #666666; /* Medium gray for inactive nav links */
         }
         /* Styling for the active (selected) navigation link */
         .nav-link.active {
-            border-bottom-color: #4338ca; /* Indigo border for active tab */
-            color: #1e1b4b; /* Darker Indigo text for active tab */
+            border-bottom-color: #8B4513; /* Saddle Brown border for active tab */
+            color: #333333; /* Dark charcoal text for active tab */
         }
         /* Hover effects for navigation links */
         .nav-link:hover {
-            border-bottom-color: #6d28d9; /* Purple border on hover */
-            color: #3730a3; /* Darker Indigo text on hover */
+            border-bottom-color: #A0522D; /* Sienna border on hover */
+            color: #4A4A4A; /* Slightly darker gray text on hover */
         }
         /* Hide sections by default */
         .section {
@@ -81,18 +83,18 @@
     <!-- Main container for the entire portfolio, centered with responsive padding -->
     <div class="container mx-auto p-4 md:p-8 max-w-5xl">
 
-        <!-- Header Section: Contains your name and title -->
+        <!-- Header Section: Contains your name, title, and profile image -->
         <header class="text-center mb-8 md:mb-12">
-            <!-- Profile Image: Uncommented and updated with your provided image URL -->
+            <!-- Profile Image: Your provided image, styled for a rounded, clean look -->
             <div class="inline-block p-2 rounded-full bg-white shadow-lg mb-4">
                 <img src="http://googleusercontent.com/file_content/8" alt="Krishna Tandon Profile" class="w-32 h-32 rounded-full object-cover">
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900">Hi 👋, I'm Krishna Tandon</h1>
-            <p class="text-xl md:text-2xl text-gray-600 mt-2">A passionate Data Analyst from India 💡</p>
+            <h1 class="text-4xl md:text-5xl font-bold text-[#333333]">Hi 👋, I'm Krishna Tandon</h1>
+            <p class="text-xl md:text-2xl text-[#666666] mt-2">A passionate Data Analyst from India 💡</p>
         </header>
 
         <!-- Navigation Bar: Allows users to switch between different sections of the portfolio -->
-        <nav class="flex justify-center border-b border-gray-300 mb-8">
+        <nav class="flex justify-center border-b border-[#EAE0D5] mb-8">
             <button class="nav-link active font-semibold text-lg py-3 px-6" onclick="showSection('overview')">Overview</button>
             <button class="nav-link font-semibold text-lg py-3 px-6" onclick="showSection('skills')">Skills & Tools</button>
             <button class="nav-link font-semibold text-lg py-3 px-6" onclick="showSection('projects')">Projects</button>
@@ -104,33 +106,35 @@
             <!-- Overview Section: Provides a quick summary of your current work, learning, and fun facts -->
             <section id="overview" class="section active fade-in">
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md">
-                    <h2 class="text-2xl font-bold mb-6 text-center md:text-left">About Me</h2>
-                    <ul class="space-y-4 text-lg text-gray-700">
+                    <h2 class="text-2xl font-bold mb-6 text-center md:text-left text-[#333333]">About Me</h2>
+                    <ul class="space-y-4 text-lg text-[#666666]">
                         <li><span class="font-semibold">🔭 Currently working on:</span> HR Attrition Analytics Project 📊</li>
                         <li><span class="font-semibold">🌱 Learning:</span> Data Engineering 🔧</li>
                         <li><span class="font-semibold">💬 Ask me about:</span> Excel, SQL, Python, Power BI ⚡</li>
-                        <li><span class="font-semibold">📫 Reach me via email at:</span> <a href="mailto:ktandon121@gmail.com" class="text-indigo-600 hover:underline">ktandon121@gmail.com</a> 📧</li>
+                        <li><span class="font-semibold">📫 Reach me via email at:</span> <a href="mailto:ktandon121@gmail.com" class="text-[#A0522D] hover:underline">ktandon121@gmail.com</a> 📧</li>
                         <li><span class="font-semibold">⚡ Fun Fact:</span> I am an Autodidact 🚀</li>
                     </ul>
 
-                    <hr class="my-8 border-gray-200">
+                    <hr class="my-8 border-[#EAE0D5]">
 
-                    <h2 class="text-2xl font-bold mb-6 text-center">GitHub Insights</h2>
+                    <h2 class="text-2xl font-bold mb-6 text-center text-[#333333]">GitHub Insights</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                         <!-- GitHub Stats Badges (Views, Streak, Trophies) -->
                         <div>
                             <div class="grid grid-cols-2 gap-4 text-center">
-                                <div class="bg-gray-100 p-4 rounded-lg">
-                                    <p class="text-sm font-medium text-gray-500">Profile Views</p>
-                                    <img src="https://komarev.com/ghpvc/?username=krishnatandon0303&label=&color=4338ca&style=flat-square" alt="Profile Views" class="mx-auto mt-2"/>
+                                <div class="bg-[#EAE0D5] p-4 rounded-lg">
+                                    <p class="text-sm font-medium text-[#666666]">Profile Views</p>
+                                    <!-- Changed badge color to match vintage theme -->
+                                    <img src="https://komarev.com/ghpvc/?username=krishnatandon0303&label=&color=8B4513&style=flat-square" alt="Profile Views" class="mx-auto mt-2"/>
                                 </div>
-                                <div class="bg-gray-100 p-4 rounded-lg">
-                                    <p class="text-sm font-medium text-gray-500">GitHub Streak</p>
-                                    <img src="https://github-readme-streak-stats.herokuapp.com/?user=krishnatandon0303&theme=light&hide_border=true&card_width=150&date_format=M%20j%5B%2C%20Y%5D" alt="GitHub Streak" class="mx-auto"/>
+                                <div class="bg-[#EAE0D5] p-4 rounded-lg">
+                                    <p class="text-sm font-medium text-[#666666]">GitHub Streak</p>
+                                    <!-- Changed theme for streak badge -->
+                                    <img src="https://github-readme-streak-stats.herokuapp.com/?user=krishnatandon0303&theme=radical&hide_border=true&card_width=150&date_format=M%20j%5B%2C%20Y%5D" alt="GitHub Streak" class="mx-auto"/>
                                 </div>
                             </div>
-                            <div class="mt-4 bg-gray-100 p-4 rounded-lg text-center">
-                                <p class="text-sm font-medium text-gray-500 mb-2">Trophies</p>
+                            <div class="mt-4 bg-[#EAE0D5] p-4 rounded-lg text-center">
+                                <p class="text-sm font-medium text-[#666666] mb-2">Trophies</p>
                                 <img src="https://github-profile-trophy.vercel.app/?username=krishnatandon0303&theme=flat&no-frame=true&no-bg=true&margin-w=4" alt="Trophies" class="mx-auto"/>
                             </div>
                         </div>
@@ -145,7 +149,7 @@
             <!-- Skills Section: Displays your programming languages and tools using badges -->
             <section id="skills" class="section fade-in">
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md">
-                    <h2 class="text-2xl font-bold mb-6 text-center">🛠️ Languages & Tools:</h2>
+                    <h2 class="text-2xl font-bold mb-6 text-center text-[#333333]">🛠️ Languages & Tools:</h2>
                     <div id="skills-grid" class="flex flex-wrap justify-center gap-4">
                         <!-- Skills will be dynamically inserted here by JavaScript -->
                     </div>
@@ -155,7 +159,7 @@
             <!-- Projects Section: Showcases your featured projects with descriptions and links -->
             <section id="projects" class="section fade-in">
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md">
-                    <h2 class="text-2xl font-bold mb-6 text-center">🚀 Featured Projects</h2>
+                    <h2 class="text-2xl font-bold mb-6 text-center text-[#333333]">🚀 Featured Projects</h2>
                     <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <!-- Projects will be dynamically inserted here by JavaScript -->
                     </div>
@@ -165,12 +169,12 @@
             <!-- Connect Section: Provides links to your social media and other professional profiles -->
             <section id="connect" class="section fade-in">
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md">
-                    <h2 class="text-2xl font-bold mb-6 text-center">Connect With Me</h2>
-                    <p class="text-center text-lg text-gray-600 mb-6">
+                    <h2 class="text-2xl font-bold mb-6 text-center text-[#333333]">Connect With Me</h2>
+                    <p class="text-center text-lg text-[#666666] mb-6">
                         I'm always open to connecting with like-minded people. Feel free to reach out!
                         <br>
                         <!-- Direct email link for easy contact -->
-                        <a href="mailto:ktandon121@gmail.com" class="text-indigo-600 hover:underline font-semibold">ktandon121@gmail.com</a> 📧
+                        <a href="mailto:ktandon121@gmail.com" class="text-[#A0522D] hover:underline font-semibold">ktandon121@gmail.com</a> 📧
                     </p>
                     <div id="connect-grid" class="flex flex-wrap justify-center gap-4">
                         <!-- Social links will be dynamically inserted here by JavaScript -->
@@ -181,8 +185,8 @@
 
         <!-- Footer Section: Contains an inspirational quote -->
         <footer class="text-center mt-12">
-            <p class="text-gray-600 italic">"Learning is the only thing the mind never exhausts, never fears, and never regrets."</p>
-            <p class="text-gray-500 font-semibold mt-1">— Leonardo da Vinci</p>
+            <p class="text-[#666666] italic">"Learning is the only thing the mind never exhausts, never fears, and never regrets."</p>
+            <p class="text-[#666666] font-semibold mt-1">— Leonardo da Vinci</p>
         </footer>
 
     </div>
@@ -195,15 +199,16 @@
         const appData = {
             // Array of skill objects. Each object represents a skill/tool.
             skills: [
-                { name: 'Python', link: 'https://www.python.org', badge: 'https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white' },
-                { name: 'MySQL', link: 'https://www.mysql.com/', badge: 'https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white' },
-                { name: 'PostgreSQL', link: 'https://www.postgresql.org', badge: 'https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white' },
-                { name: 'Pandas', link: 'https://pandas.pydata.org/', badge: 'https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white' },
-                { name: 'SQL Server', link: 'https://www.microsoft.com/en-us/sql-server', badge: 'https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white' },
-                { name: 'Power BI', link: 'https://www.powerbi.com', badge: 'https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=power-bi&logoColor=black' },
-                { name: 'AWS', link: 'https://aws.amazon.com', badge: 'https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white' },
-                { name: 'Docker', link: 'https://www.docker.com/', badge: 'https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white' },
-                { name: 'C++', link: 'https://www.w3schools.com/cpp/', badge: 'https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white' }
+                // Updated badge colors for a more vintage/muted feel where possible
+                { name: 'Python', link: 'https://www.python.org', badge: 'https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white' }, /* Kept original for strong logo */
+                { name: 'MySQL', link: 'https://www.mysql.com/', badge: 'https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white' }, /* Kept original for strong logo */
+                { name: 'PostgreSQL', link: 'https://www.postgresql.org', badge: 'https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white' }, /* Kept original for strong logo */
+                { name: 'Pandas', link: 'https://pandas.pydata.org/', badge: 'https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white' }, /* Kept original for strong logo */
+                { name: 'SQL Server', link: 'https://www.microsoft.com/en-us/sql-server', badge: 'https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoft-sql-server&logoColor=white' }, /* Kept original for strong logo */
+                { name: 'Power BI', link: 'https://www.powerbi.com', badge: 'https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=power-bi&logoColor=black' }, /* Kept original for strong logo */
+                { name: 'AWS', link: 'https://aws.amazon.com', badge: 'https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white' }, /* Kept original for strong logo */
+                { name: 'Docker', link: 'https://www.docker.com/', badge: 'https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white' }, /* Kept original for strong logo */
+                { name: 'C++', link: 'https://www.w3schools.com/cpp/', badge: 'https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white' } /* Kept original for strong logo */
             ],
             // Array of project objects. Each object represents a featured project.
             projects: [
@@ -250,20 +255,22 @@
             ],
             // Array of social/connect link objects.
             connect: [
-                { name: 'LinkedIn', link: 'https://linkedin.com/in/krishna-tandon-ab1421312', badge: 'https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white' },
-                { name: 'Kaggle', link: 'https://kaggle.com/krishnatcode', badge: 'https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white' },
-                { name: 'Medium', link: 'https://medium.com/@ktandon121', badge: 'https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white' },
-                { name: 'HackerRank', link: 'https://www.hackerrank.com/ktandon121', badge: 'https://img.shields.io/badge/-HackerRank-2EC866?style=for-the-badge&logo=hackerrank&logoColor=white' },
-                { name: 'LeetCode', link: 'https://www.leetcode.com/ktandon121', badge: 'https://img.shields.io/badge/-LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black' },
-                { name: 'Instagram', link: 'https://instagram.com/krishnatandon__', badge: 'https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white' }
+                // Updated badge colors for a more vintage/muted feel where possible
+                { name: 'LinkedIn', link: 'https://linkedin.com/in/krishna-tandon-ab1421312', badge: 'https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white' }, /* Kept original for strong logo */
+                { name: 'Kaggle', link: 'https://kaggle.com/krishnatcode', badge: 'https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white' }, /* Kept original for strong logo */
+                { name: 'Medium', link: 'https://medium.com/@ktandon121', badge: 'https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white' }, /* Kept original for strong logo */
+                { name: 'HackerRank', link: 'https://www.hackerrank.com/ktandon121', badge: 'https://img.shields.io/badge/-HackerRank-2EC866?style=for-the-badge&logo=hackerrank&logoColor=white' }, /* Kept original for strong logo */
+                { name: 'LeetCode', link: 'https://www.leetcode.com/ktandon121', badge: 'https://img.shields.io/badge/-LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black' }, /* Kept original for strong logo */
+                { name: 'Instagram', link: 'https://instagram.com/krishnatandon__', badge: 'https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white' } /* Kept original for strong logo */
             ],
             // Data for the "Top Languages" doughnut chart.
             topLangs: {
                 // These values are estimated from the GitHub stats image you provided.
                 // You can update these if you get more accurate data from GitHub API or other tools.
                 labels: ['Python', 'Jupyter Notebook', 'HTML', 'CSS', 'JavaScript'],
+                // Updated data colors to match the vintage theme
                 data: [45, 30, 15, 5, 5], // Percentages for each language
-                colors: ['#3776AB', '#F37626', '#E34F26', '#1572B6', '#F7DF1E'] // Corresponding colors for the chart segments
+                colors: ['#7F8C8D', '#D35400', '#E74C3C', '#3498DB', '#F1C40F'] // Muted, earthy tones for chart segments
             }
         };
 
@@ -294,16 +301,16 @@
                 card.href = project.link;
                 card.target = '_blank'; // Open link in a new tab
                 // Tailwind classes for styling project cards, including hover effects
-                card.className = 'block bg-gray-50 hover:bg-white p-6 rounded-lg shadow-sm hover:shadow-xl transition-shadow duration-300';
+                card.className = 'block bg-white hover:bg-[#FBF8F3] p-6 rounded-lg shadow-sm hover:shadow-xl transition-shadow duration-300'; /* Adjusted hover background */
                 
                 // HTML structure for each project card
                 const content = `
                     <div class="flex items-start">
                         <div class="text-3xl mr-4">${project.icon}</div> <!-- Project icon -->
                         <div>
-                            <h3 class="text-xl font-bold text-gray-800">${project.name}</h3> <!-- Project name -->
-                            <p class="text-gray-600 mt-2">${project.description}</p> <!-- Project description -->
-                            <span class="inline-block text-indigo-600 font-semibold mt-4 group-hover:underline">View Project →</span> <!-- Call to action -->
+                            <h3 class="text-xl font-bold text-[#333333]">${project.name}</h3> <!-- Project name -->
+                            <p class="text-[#666666] mt-2">${project.description}</p> <!-- Project description -->
+                            <span class="inline-block text-[#A0522D] font-semibold mt-4 group-hover:underline">View Project →</span> <!-- Call to action -->
                         </div>
                     </div>
                 `;
